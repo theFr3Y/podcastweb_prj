@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- css files and title tag or anything -->
+  {% include 'bases/headtag.html' %}
+</head>
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header class="site-navbar py-4" role="banner">
+
+      {% include 'bases/headertag.html' %}
+      
+    </header>
+
+    
+
+    <div class="container pt-5 hero">
+      <div class="row align-items-center text-center text-md-left">
+        
+        <div class="col-lg-4">
+          <h1 class="mb-3 display-3">Listen, Learn, Enjoy</h1>
+          <p>welcom to podcast. in this place you can listen, learn and enjoy from podcasters skills and experiences</p>
+        </div>
+        <div class="col-lg-8">
+          <img src="{% static 'images/1x/asset-1.png' %}" alt="Image" class="img-fluid">    
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="site-section">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="featured-user  mb-5 mb-lg-0">
+              <h3 class="mb-4">Podcasters</h3>
+              <ul class="list-unstyled">
+                {% for PodcasterModel in podcaster %}
+                <li>
+                  <a href="{% url 'main:slug' PodcasterModel.slug %}" class="d-flex align-items-center">
+                    <img src="{{ PodcasterModel.pic.url }}" alt="Image" class="img-fluid mr-2">
+                    <div class="podcaster">
+                      <span class="d-block">{{ PodcasterModel.name }}</span>
+                    </div>
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          
+          
+          <div class="col-lg-9">
+            {% for PodcastModel in podcast %}
+          
+            <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
+              <div class="image" style="background-image: url('{{ PodcastModel.pic.url }}');"></div>
+              <div class="text">
+
+                <h3 class="font-weight-light"><a href="single-post.html">{{ PodcastModel.title }}</a></h3>
+                <div class="text-white mb-3"><span class="text-black-opacity-05">{{ PodcastModel.date }}</span></div>
+
+
+                <div class="player">
+                  <audio id="player2" preload="none" controls style="max-width: 100%">
+                    <source src="{{ PodcastModel.url }}" type="audio/mp3">
+                    </audio>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="site-section bg-light block-13">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-12 text-center">
+            <h2 class="font-weight-bold text-black">Users Comments</h2>
+          </div>
+        </div>
+        <div class="nonloop-block-13 owl-carousel">
+        {% for ContactModel in comment %}
+          <div class="text-center p-3 p-md-5 bg-white">
+            <div class="">
+              <h3 class="font-weight-light h5">{{ ContactModel.firstname }} {{ ContactModel.lastname }}</h3>
+              <p>{{ ContactModel.message }}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      {% include 'bases/footertag.html' %}
+    </footer>
+  </div>
+  
+  <!-- js(<script>) -->
+  {% include 'bases/scripttag.html' %}
+
+</body>
+</html>

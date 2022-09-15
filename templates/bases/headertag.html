@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row align-items-center">
+
+
+      <div class="col-3">
+        <h1 class="site-logo"><a href="{% url 'main:index' %}" class="h2">Podcast<span class="text-primary">.</span> </a></h1>
+      </div>
+      <div class="col-9">
+        <nav class="site-navigation position-relative text-right text-md-right" role="navigation">
+
+
+
+          <div class="d-block d-lg-none ml-md-0 mr-auto"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+
+          <ul class="site-menu js-clone-nav d-none d-lg-block">
+            <li><a href="{% url 'main:index' %}">Home</a></li>
+            <li><a href="{% url 'main:about' %}">About</a></li>
+            <li><a href="{% url 'main:contact' %}">Contact</a></li>
+            {% if user.is_authenticated %}<li><a href="{% url 'main:logout' %}">logout from {{ user.username }}</a></li>{% else %}<li><a href="{% url 'main:login-register' %}">Login / Register</a></li>{% endif %}
+          </ul>
+        </nav>
+
+
+      </div>
+
+    </div>
+  </div>

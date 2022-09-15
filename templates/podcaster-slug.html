@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- css files and title tag or anything -->
+  {% include 'bases/headtag.html' %}
+</head>
+<body>
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header class="site-navbar py-4" role="banner">
+
+      {% include 'bases/headertag.html' %}
+      
+    </header>
+          
+        {% for podcaster in category.pods.all %}
+          <div class="col-lg-9">
+
+          
+            <div class="d-block d-md-flex podcast-entry bg-white mb-5" data-aos="fade-up">
+              <div class="image" style="background-image: url('{{ podcaster.pic.url }}');"></div>
+              <div class="text">
+
+                <h3 class="font-weight-light"><a href="single-post.html">{{ podcaster.title }}</a></h3>
+                <div class="text-white mb-3"><span class="text-black-opacity-05">{{ podcaster.date }}</span></div>
+
+
+                <div class="player">
+                  <audio id="player2" preload="none" controls style="max-width: 100%">
+                    <source src="{{ podcaster.url }}" type="audio/mp3">
+                    </audio>
+                  </div>
+                </div>
+              </div>
+                    </div>
+                    {% endfor %}
+
+
+    <footer class="site-footer">
+      {% include 'bases/footertag.html' %}
+    </footer>
+  </div>
+  
+  <!-- js(<script>) -->
+  {% include 'bases/scripttag.html' %}
+
+</body>
+</html>

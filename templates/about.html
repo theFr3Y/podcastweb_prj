@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include 'bases/headtag.html' %}
+    
+  </head>
+  <body>
+  
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header class="site-navbar py-4" role="banner">
+
+      {% include 'bases/headertag.html' %}
+      
+    </header>
+
+    <div class="site-blocks-cover inner-page-cover bg-light mb-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-12 text-center">
+            <h1 class="mb-0">About Podcast</h1>
+            <a href="{% url 'main:index' %}">Home</a><span class="mx-2">&bullet;</span> About Us
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="site-section pt-3">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12">
+            <h2 class="display-5 mb-3 text-black">About The Company</h2>
+          </div>
+          <div class="col-lg-6">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error accusantium, deleniti repellendus ullam accusamus molestiae explicabo quo consequuntur assumenda, voluptatum!</p>
+          </div>
+          <div class="col-lg-6">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit nisi, tenetur numquam explicabo consectetur provident illo.</p>
+          </div>
+        </div>
+        <div class="row  justify-content-around">
+          <div class="col-md-12">
+            
+            <img src="{% static 'images/1x/asset-1.png' %}" alt="Image" class="img-fluid mb-5">    
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <footer class="site-footer">
+      {% include 'bases/footertag.html' %}
+    </footer>
+  </div>
+
+  {% include 'bases/scripttag.html' %}
+    
+  </body>
+</html>
