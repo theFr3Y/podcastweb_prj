@@ -3,8 +3,8 @@ testing + api
 
 ###description
 in this project, i made a podcast blog that has newer features than <a href="https://github.com/theFr3Y/weblog_django_prj.git">weblog</a> such as:<br>
--API authtoken(with django rest api)<br>
--Testing(for watch codes go to this path:"mainapp/tests.py)
+-JWT API and DRF(for watch codes go to this path:"apiapp")<br>
+-Testing(for watch codes go to this path:"mainapp/tests.py")
 
 ## Install and Run
 ```bash
