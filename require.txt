@@ -1,3 +1,4 @@
 Django==4.0.5
 djangorestframework==3.13.1
 Pillow==8.4.0
+pip install djangorestframework_simplejwt
