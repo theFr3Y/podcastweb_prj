@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'apiapp',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_simplejwt'
 ]
 
 CRISPY_TEMPLATE_PACK = 'uni_form'
@@ -140,17 +141,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #    ]
     #another Permissions: IsAdminUser, IsAuthenticatedOrReadOnly
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
-
-    
     # This authentication scheme uses a simple token-based HTTP Authentication
     # scheme. Token authentication is appropriate for client-server setups,
     # such as native desktop and mobile clients.
-    #PS: i wanted to use """ for comments, but i think its better this way :)
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
     
+    # Simple JWT provides a JSON Web Token authentication backend for the Django REST Framework.
+    # It aims to cover the most common use cases of JWTs by offering a conservative set of default features.
+    # It also aims to be easily extensible in case a desired feature is not present.
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ]
 }
