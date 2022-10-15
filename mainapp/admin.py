@@ -22,7 +22,8 @@ class PodcastAdmin(admin.ModelAdmin):
         ('address(slug)', {'fields':['slug']}),
         ('podcast file', {'fields':['url']}),
         ('podcast picture', {'fields':['pic']}),
-        ('podcast status', {'fields':['publish']})
+        ('podcast status', {'fields':['publish']}),
+        ('category field', {'fields':['category']})
     ]
 
 class ContactAdmin(admin.ModelAdmin):
